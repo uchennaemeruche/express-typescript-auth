@@ -10,7 +10,8 @@ export const addErrorHandler = (
   next: NextFunction
 ): void => {
   if (err) {
-    const status: number = err.status || StatusCodes.INTERNAL_SERVER_ERROR;
+    const statusCode: number =
+      err.statusCode || StatusCodes.INTERNAL_SERVER_ERROR;
     console.debug(`REQUEST HANDLING ERROR: 
     \nERROR:\n${JSON.stringify(err)}
     \nREQUEST HEADERS:\n${util.inspect(req.headers)}
@@ -27,13 +28,13 @@ export const addErrorHandler = (
       fields: err.fields,
       message: err.message || 'An error occurred during the request.',
       name: err.name,
-      status,
+      statusCode,
       stack: ''
     };
 
     body.stack = err.stack || '';
 
-    res.status(status).send(body);
+    res.status(statusCode).send(body);
   }
   next();
 };
