@@ -6,9 +6,9 @@ import { Server, createServer } from 'http';
 import { addErrorHandler } from './middlewares/error.middleware';
 
 export default class App {
-  public app: Application;
+  public app!: Application;
 
-  public httpServer: Server;
+  public httpServer!: Server;
 
   // eslint-disable-next-line @typescript-eslint/require-await
   public async init(): Promise<void> {

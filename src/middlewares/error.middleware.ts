@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import util from 'util';
-import APIError, { IError } from '../abstractions/api_error';
+import APIError, { IError } from '../abstract_definitions/api_error';
 
 export const addErrorHandler = (
   err: APIError,

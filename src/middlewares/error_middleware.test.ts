@@ -1,22 +1,6 @@
-/* eslint-disable @typescript-eslint/require-await */
 import { NextFunction, Request, Response } from 'express';
-import APIError from '../abstractions/api_error';
+import APIError from '../abstract_definitions/api_error';
 import { addErrorHandler } from './error.middleware';
-
-// const authorizationMiddleware = (
-//   request: Request,
-//   response: Response,
-//   next: NextFunction
-// ): void => {
-//   if (!request.headers || !request.headers['authorization']) {
-//     response.statusCode = 403;
-//     response.json({
-//       error: "Missing JWT token from the 'Authorization' header"
-//     });
-//   } else {
-//     next();
-//   }
-// };
 
 describe('Error Middleware Handler', () => {
   let mockRequest: Partial<Request> = {};
@@ -41,6 +25,7 @@ describe('Error Middleware Handler', () => {
       json: jest.fn()
     };
   });
+  // eslint-disable-next-line @typescript-eslint/require-await
   test('Error Thrown', async () => {
     addErrorHandler(
       new APIError('A new Error occured', 400),
