@@ -12,7 +12,7 @@ export interface IError {
 export default class APIError extends Error implements IError {
   public status = 500;
   public success = false;
-  public fields: { name: { message: string } };
+  public fields!: { name: { message: string } };
 
   constructor(message: string, statusCode: number, name: string = 'APIError') {
     super();

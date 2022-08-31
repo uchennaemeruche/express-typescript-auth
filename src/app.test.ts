@@ -1,4 +1,6 @@
-import { greet } from './app';
+function greet({ name }: { name: string }): string {
+  return `Hello ${name}`;
+}
 
 test('should return greeting', () => {
   const name = 'Uchenna';
