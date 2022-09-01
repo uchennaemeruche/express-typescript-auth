@@ -3,6 +3,13 @@ import { StatusCodes } from 'http-status-codes';
 import util from 'util';
 import APIError, { IError } from '../abstract_definitions/api_error';
 
+/**
+ * catches errors from other middlewares
+ * @param err APIError
+ * @param req Request
+ * @param res Response
+ * @param next NextFunction
+ */
 export const addErrorHandler = (
   err: APIError,
   req: Request,
